@@ -1,5 +1,8 @@
 package net.croz.mresetar.java8;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
+import org.junit.Test;
 
 interface FirstHello {
 	default String hello() {
@@ -18,10 +21,10 @@ public class DefaultInterfaceDaimond implements FirstHello, SecondHello {
 	public String hello() {
 		return FirstHello.super.hello();
 	}
-	
-	public static void main(String[] args) {
-		// prints net.croz.mresetar.java8.FirstHello
-		System.out.println(new DefaultInterfaceDaimond().hello());
+
+	@Test
+	public void printHello() {
+		assertThat(new DefaultInterfaceDaimond().hello()).isEqualTo("net.croz.mresetar.java8.FirstHello");
 	}
 }
 

@@ -3,6 +3,12 @@
  */
 package net.croz.mresetar.groovy
 
+import static org.assertj.core.api.StrictAssertions.assertThat;
+
+import org.junit.Test;
+
+import net.croz.mresetar.java8.DefaultInterfaceDaimond;
+
 /**
  * @author Miroslav
  *
@@ -21,8 +27,8 @@ trait SecondHello {
 }
 
 class GroovyTraitsDaimond implements FirstHello, SecondHello {
-	static void main(String[] args) {
-		// prints net.croz.mresetar.groovy.SecondHello
-		println new GroovyTraitsDaimond().hello()
+	@Test
+	void printHello() {
+		assertThat(new GroovyTraitsDaimond().hello()).isEqualTo("net.croz.mresetar.groovy.SecondHello")
 	}
 }
